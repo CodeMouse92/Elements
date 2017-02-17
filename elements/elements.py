@@ -23,8 +23,7 @@ class ElementsApp(App):
 
         # Set the title and icon.
         self.title = "Elements"
-        #self.icon = "icons/app/elements_icon_512.png"
-        set_window_icon(self, "icons/app/elements_icon_512.png")
+        self.icon = "icons/app/elements_icon_32.png"
 
         # Create the window.
         elements_app = ElementsWindow()
@@ -38,7 +37,3 @@ def alive():
     """Check if Elements is detected. We'll drop this once we have some
     other tests."""
     return True
-
-def set_window_icon(self, filename):
-    icon = IMG_Load(<bytes>filename.encode('utf-8'))
-    SDL_SetWindowIcon(self.win, icon)
