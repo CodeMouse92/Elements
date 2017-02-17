@@ -1,6 +1,8 @@
 import kivy
 kivy.require('1.9.2')
 
+
+
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 
@@ -23,7 +25,7 @@ class ElementsApp(App):
 
         # Set the title and icon.
         self.title = "Elements"
-        self.icon = "icons/app/elements_icon_32.png"
+        self.icon = "icons/app/elements_icon_512.png"
 
         # Create the window.
         elements_app = ElementsWindow()
