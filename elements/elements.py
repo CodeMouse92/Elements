@@ -14,11 +14,21 @@ class ElementsApp(App):
     """
     Application-level class, builds the application
     """
+
     def build(self):
         """
-        Builds the app out of widgets
+        This function starts the application by constructing
+        it from widgets and properties.
         """
+
+        # Set the title and icon.
+        self.title = "Elements"
+        #self.icon = "icons/app/elements_icon_512.png"
+        set_window_icon(self, "icons/app/elements_icon_512.png")
+
+        # Create the window.
         elements_app = ElementsWindow()
+
         return elements_app
 
 if __name__ == '__main__':
@@ -28,3 +38,7 @@ def alive():
     """Check if Elements is detected. We'll drop this once we have some
     other tests."""
     return True
+
+def set_window_icon(self, filename):
+    icon = IMG_Load(<bytes>filename.encode('utf-8'))
+    SDL_SetWindowIcon(self.win, icon)
