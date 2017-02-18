@@ -1,18 +1,108 @@
 #:kivy 1.9.2
 
 <ElementsWindow>:
-    id: mainbox
-    orientation: 'vertical'
     BoxLayout:
-        size_hint_min_y: 0.05
-        size_hint_max_y: 0.1
-        #height: '30dp'
-        orientation: 'horizontal'
-        Button:
-            size_hint_x: 0.1
-            text: "Play"
-        Button:
-            size_hint_x: 0.1
-            text: "Stop"
-    BoxLayout:
-        orientation: 'horizontal'
+        id: mainbox
+        orientation: 'vertical'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_min_y: self.parent.width * 0.06
+            size_hint_max_y: self.parent.width * 0.07
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_min_x: self.parent.width * 0.2
+                size_hint_max_x: self.parent.width * 0.2
+                Button:
+                    id: btnPrev
+                    Image:
+                        source: "icons/ui/elements_prev.png"
+                        width: self.parent.width
+                        height: self.parent.height * 0.8
+                        x: self.parent.x
+                        y: self.parent.y + (self.parent.height * 0.1)
+                Button:
+                    id: btnPlay
+                    Image:
+                        source: "icons/ui/elements_play.png"
+                        width: self.parent.width
+                        height: self.parent.height * 0.8
+                        x: self.parent.x
+                        y: self.parent.y + (self.parent.height * 0.1)
+                Button:
+                    id: btnNext
+                    Image:
+                        source: "icons/ui/elements_next.png"
+                        width: self.parent.width
+                        height: self.parent.height * 0.8
+                        x: self.parent.x
+                        y: self.parent.y + (self.parent.height * 0.1)
+            BoxLayout:
+                orientation: 'horizontal'
+                #size_hint_min_x: self.parent.width * 0.6
+                #size_hint_max_x: self.parent.width * 0.6
+                Label:
+                    size_hint_min_x: self.parent.width * 0.15
+                    size_hint_max_x: self.parent.width * 0.15
+                    AsyncImage:
+                        source: "icons/ui/elements_nocover.png"
+                        width: self.parent.width
+                        height: self.parent.height * 0.8
+                        x: self.parent.x
+                        y: self.parent.y + (self.parent.height * 0.1)
+                BoxLayout:
+                    orientation: 'vertical'
+                    Label:
+                        shorten: True
+                        shorten_from: 'right'
+                        strip: False
+                        text_size: (self.parent.width, None)
+                        halign: 'left'
+                        text: 'Track Title'
+                    Label:
+                        shorten: True
+                        shorten_from: 'right'
+                        strip: False
+                        text_size: (self.parent.width, None)
+                        halign: 'left'
+                        text: 'Track Artist'
+                    Label:
+                        shorten: True
+                        shorten_from: 'right'
+                        strip: False
+                        text_size: (self.parent.width, None)
+                        halign: 'left'
+                        text: 'Track Album (Year)'
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_min_x: self.parent.width * 0.2
+                size_hint_max_x: self.parent.width * 0.2
+                Button:
+                    id: btnTags
+                    on_press: root.menu_toggle_tag_bubble()
+                    Image:
+                        source: "icons/ui/elements_tags.png"
+                        width: self.parent.width
+                        height: self.parent.height * 0.8
+                        x: self.parent.x
+                        y: self.parent.y + (self.parent.height * 0.1)
+                Button:
+                    id: btnStar
+                    Image:
+                        source: "icons/ui/elements_star.png"
+                        width: self.parent.width
+                        height: self.parent.height * 0.8
+                        x: self.parent.x
+                        y: self.parent.y + (self.parent.height * 0.1)
+        BoxLayout:
+            orientation: 'horizontal'
+
+<BubbleTags>:
+    show_arrow: True
+    arrow_pos: "top_right"
+    size: (160, 120)
+    BubbleButton:
+        text: "One"
+    BubbleButton:
+        text: "Two"
+    BubbleButton:
+        text: "Three"

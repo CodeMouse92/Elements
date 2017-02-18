@@ -3,24 +3,18 @@ none: help
 help:
 	@echo "Elements: A modern music library."
 	@echo
-	@echo "run            Run Elements."
+	@echo "demo_deploy    Run Elements from /tmp on Ubuntu."
+	@echo "demo_clean     Clean up the demo."
+	@echo "run            Run Elements directly from this repository."
 	@echo "lint           Run pylint3 on the Elements package."
 	@echo "test           Run pytests for Elements."
 
 demo_deploy: demo_clean
-	# Above, we're first cleaning up from any prior runs.
-	# Create a folder in /tmp for our application.
 	@mkdir -p /tmp/bin
-	# Copy our application to the /tmp directory.
 	@cp -rf elements /tmp/bin/elements
-	# Install our .desktop file.
 	@cp -f deploy/elements_tmp.desktop ~/.local/share/applications/
-	# Start the application using the .desktop file, thus showing the icon.
-	@gtk-launch elements_tmp.desktop
-	# Once we start the application, we can delete the .desktop file.
+	@gtk-launch elements_tmp
 	@rm -f ~/.local/share/applications/elements_tmp.desktop
-	# NOTE: We don't want our .desktop file to stay after execution, because
-	# it will be broken if we restart our computer (which clears /tmp)
 
 demo_clean:
 	@rm -rf /tmp/bin/elements
