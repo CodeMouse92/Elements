@@ -1,33 +1,53 @@
 #:kivy 1.9.2
 
+#Top level element is a FloatLayout, for popup items.
 <ElementsWindow>:
+
+    # Main structure.
     BoxLayout:
         id: mainbox
         orientation: 'vertical'
+        # Top toolbar.
         BoxLayout:
             orientation: 'horizontal'
+            # Height of the toolbar should be 6-7% of the parent.
             size_hint_min_y: self.parent.width * 0.06
             size_hint_max_y: self.parent.width * 0.07
+            # Sub-toolbar for playback controls.
             BoxLayout:
                 orientation: 'horizontal'
-                size_hint_min_x: self.parent.width * 0.2
-                size_hint_max_x: self.parent.width * 0.2
-                Button:
+                # Playback controls should take up only 3% of the toolbar width.
+                size_hint_min_x: self.parent.width * 0.3
+                size_hint_max_x: self.parent.width * 0.3
+                # "Previous" button.
+                UIButton:
                     id: btnPrev
+                    info: "Previous Track"
                     Image:
                         source: "icons/ui/elements_prev.png"
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
+                # "Play/Pause" button.
                 Button:
-                    id: btnPlay
+                    id: btnPlayback
                     Image:
                         source: "icons/ui/elements_play.png"
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
+                # "Stop" button.
+                Button:
+                    id: btnStop
+                    Image:
+                        source: "icons/ui/elements_stop.png"
+                        width: self.parent.width
+                        height: self.parent.height * 0.8
+                        x: self.parent.x
+                        y: self.parent.y + (self.parent.height * 0.1)
+                # "Next" button.
                 Button:
                     id: btnNext
                     Image:
@@ -36,10 +56,9 @@
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
+            # "Now Playing" sub-toolbar.
             BoxLayout:
                 orientation: 'horizontal'
-                #size_hint_min_x: self.parent.width * 0.6
-                #size_hint_max_x: self.parent.width * 0.6
                 Label:
                     size_hint_min_x: self.parent.width * 0.15
                     size_hint_max_x: self.parent.width * 0.15
@@ -72,19 +91,31 @@
                         text_size: (self.parent.width, None)
                         halign: 'left'
                         text: 'Track Album (Year)'
+            # "Actions" sub-toolbar.
             BoxLayout:
                 orientation: 'horizontal'
                 size_hint_min_x: self.parent.width * 0.2
                 size_hint_max_x: self.parent.width * 0.2
+                # "Tags" button.
                 Button:
                     id: btnTags
-                    on_press: root.menu_toggle_tag_bubble()
+                    #on_press: root.menu_toggle_tag_bubble()
                     Image:
                         source: "icons/ui/elements_tags.png"
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
+                # "Mood" button.
+                Button:
+                    id: btnStar
+                    Image:
+                        source: "icons/ui/elements_cloud.png"
+                        width: self.parent.width
+                        height: self.parent.height * 0.8
+                        x: self.parent.x
+                        y: self.parent.y + (self.parent.height * 0.1)
+                # "Rating" button.
                 Button:
                     id: btnStar
                     Image:
@@ -95,6 +126,22 @@
                         y: self.parent.y + (self.parent.height * 0.1)
         BoxLayout:
             orientation: 'horizontal'
+            UIButton:
+                text: "Argh"
+                info: "Tooltip"
+
+<Tooltip>:
+    size_hint: None, None
+    #size: self.texture_size[0]+5, self.texture_size[1]+5
+    #width: '40dp'
+    #height: '60dp'
+    #text: "Hi there!"
+    canvas.after:
+        Color:
+            rgb: 236, 236, 236
+        Rectangle:
+            size: self.size
+            pos: self.pos
 
 <BubbleTags>:
     show_arrow: True
