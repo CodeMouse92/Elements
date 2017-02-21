@@ -1,0 +1,2 @@
+sphinx/* linguist-documentation
+*.kv linguist-language=Python
