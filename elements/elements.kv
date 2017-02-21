@@ -22,36 +22,47 @@
                 # "Previous" button.
                 UIButton:
                     id: btnPrev
-                    info: "Previous Track"
+                    info: "Previous"
                     Image:
                         source: "icons/ui/elements_prev.png"
+                        # Blue, 75% lightness
+                        color: ((125/255),(125/255),(255/255),(255/255))
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
                 # "Play/Pause" button.
-                Button:
+                UIButton:
                     id: btnPlayback
+                    info: "Play/Pause"
                     Image:
                         source: "icons/ui/elements_play.png"
+                        # Green, 75% lightness
+                        color: ((125/255),(255/255),(125/255),(255/255))
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
                 # "Stop" button.
-                Button:
+                UIButton:
                     id: btnStop
+                    info: "Stop"
                     Image:
                         source: "icons/ui/elements_stop.png"
+                        # Red, 75% lightness
+                        color: ((255/255),(100/255),(75/255),(255/255))
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
                 # "Next" button.
-                Button:
+                UIButton:
                     id: btnNext
+                    info: "Next"
                     Image:
                         source: "icons/ui/elements_next.png"
+                        # Blue, 75% lightness
+                        color: ((125/255),(125/255),(255/255),(255/255))
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
@@ -97,48 +108,52 @@
                 size_hint_min_x: self.parent.width * 0.2
                 size_hint_max_x: self.parent.width * 0.2
                 # "Tags" button.
-                Button:
+                UIButton:
                     id: btnTags
+                    info: "Tags"
                     #on_press: root.menu_toggle_tag_bubble()
                     Image:
+                        # Orange, 75% lightness
                         source: "icons/ui/elements_tags.png"
+                        color: ((255/255),(190/255),(128/255),(255/255))
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
                 # "Mood" button.
-                Button:
-                    id: btnStar
+                UIButton:
+                    id: btnMood
+                    info: "Mood"
                     Image:
                         source: "icons/ui/elements_cloud.png"
+                        # Cyan, 75% lightness
+                        color: ((128/255),(255/255),(255/255),(255/255))
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
                 # "Rating" button.
-                Button:
+                UIButton:
                     id: btnStar
+                    info: "Rating"
                     Image:
                         source: "icons/ui/elements_star.png"
+                        # Yellow, 75% lightness
+                        color: ((255/255),(255/255),(125/255),(255/255))
                         width: self.parent.width
                         height: self.parent.height * 0.8
                         x: self.parent.x
                         y: self.parent.y + (self.parent.height * 0.1)
         BoxLayout:
             orientation: 'horizontal'
-            UIButton:
-                text: "Argh"
-                info: "Tooltip"
 
 <Tooltip>:
     size_hint: None, None
-    #size: self.texture_size[0]+5, self.texture_size[1]+5
-    #width: '40dp'
-    #height: '60dp'
-    #text: "Hi there!"
-    canvas.after:
+    size: self.texture_size[0]+5, self.texture_size[1]+5
+    halign: 'left'
+    canvas.before:
         Color:
-            rgb: 236, 236, 236
+            rgb: 0, 0, 0
         Rectangle:
             size: self.size
             pos: self.pos
