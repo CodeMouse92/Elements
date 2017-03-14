@@ -1,3 +1,9 @@
+"""
+Main module and GUI for Elements.
+
+Author(s): Jason C. McDonald
+"""
+
 import kivy
 kivy.require('1.9.2')
 
@@ -20,6 +26,10 @@ class ElementsWindow(FloatLayout):
     pass
 
 class Tooltip(Label):
+    """
+    Extending the Label class to create a tooltip.
+    Defined further in elements.kv
+    """
     visible = False
 
 class UIButton(Button):
@@ -62,7 +72,7 @@ class UIButton(Button):
         Clock.unschedule(self.display_tooltip)
 
         # If we can see the tooltip, remove it.
-        if(self.tooltip.visible):
+        if self.tooltip.visible:
             self.close_tooltip()
 
         # If we are moving the mouse over this widget...
@@ -70,7 +80,7 @@ class UIButton(Button):
             # Schedule the tooltip to appear.
             Clock.schedule_once(self.display_tooltip, 1)
             # Set the tooltip's x to the position of the cursor.
-            if(App.get_running_app().root.width - pos[0] < 50):
+            if App.get_running_app().root.width - pos[0] < 50:
                 # However, if we're too close to the right edge (and thus would
                 # have cutoff on the tooltip), move its position back a bit.
                 self.tooltip.x = pos[0] - 50
@@ -78,7 +88,7 @@ class UIButton(Button):
                 self.tooltip.x = pos[0]
 
             # Set the tooltip's y to the position of the cursor.
-            if(App.get_running_app().root.height - pos[1] < 30):
+            if App.get_running_app().root.height - pos[1] < 30:
                 # If we're too close to the top edge (and thus would have
                 # cutoff), move the tooltip down a bit.
                 self.tooltip.y = pos[1] - 30
@@ -96,9 +106,12 @@ class UIButton(Button):
         # Mark the tooltip as visible (for event listener reference only)
         self.tooltip.visible = True
         # Get the tooltip text from this widget's properties in the .kv file.
-        self.tooltip.text=self.info
+        self.tooltip.text = self.info
         # Add the widget to the app.
         App.get_running_app().root.add_widget(self.tooltip)
+        # Ignore unusued arguments that get passed anyway.
+        # Basically, shut the linter up.
+        del args
 
     def close_tooltip(self):
         """
