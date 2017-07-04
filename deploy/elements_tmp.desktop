@@ -2,7 +2,7 @@
 Version=1.0
 Name=Elements (Demo)
 Comment=A demo version of Elements, installed to /tmp.
-Exec=python3 /tmp/bin/elements/elements.py
+Exec=python3 -m /tmp/bin/elements
 Icon=/tmp/bin/elements/icons/app/elements_icon_512.png
 Terminal=false
 Type=Application

@@ -1,12 +1,11 @@
 """
-Main module and GUI for Elements.
+Interface [Elements]
+Kivy GUI and callbacks. Everything else is ultimately called by this.
 
 Author(s): Jason C. McDonald
 """
 
 import kivy
-kivy.require('1.9.2')
-
 from kivy.app import App
 from kivy.clock import Clock
 from kivy.compat import PY2
@@ -18,12 +17,69 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.floatlayout import FloatLayout
 
+from elements import soundplayer
+
+# Make sure we're using the right version of Kivy.
+kivy.require('1.10.0')
+
 
 class ElementsWindow(FloatLayout):
     """
-   Parent class for the app
-   """
-    pass
+    Parent class for the app. Most of the callback functions needed by the
+    application will need to go here, so they can be accessed by any
+    Kivy widget via `root.whatever()`
+    """
+
+    def __init__(self, **kwargs):
+        """
+        Initialize a new ElementsWindow.
+        """
+        # Derive the initializer from the parent class initializer.
+        if PY2:
+            super(ElementsWindow, self).__init__(**kwargs)
+        else:
+            super().__init__(**kwargs)
+
+        self.player = soundplayer.SoundPlayer()
+
+    # Playback functions.
+    def playback_toggle(self):
+        """
+        Toggle playback of audio.
+        """
+        self.player.toggle()
+        self.refresh_playpause()
+
+
+    def playback_stop(self):
+        """
+        Stop playback.
+        """
+        self.player.stop()
+        self.refresh_playpause()
+
+    def playback_prev(self):
+        """
+        Restart current item or go to previous item in queue.
+        """
+        self.player.prev()
+        self.refresh_playpause()
+
+    def playback_next(self):
+        """
+        Go to next item in queue.
+        """
+        self.player.next()
+        self.refresh_playpause()
+
+    def refresh_playpause(self):
+        """
+        Update interface to reflect playback status.
+        """
+        if self.player.is_playing():
+            self.ids.img_btnPlayback.source = "icons/ui/elements_pause.png"
+        else:
+            self.ids.img_btnPlayback.source = "icons/ui/elements_play.png"
 
 class Tooltip(Label):
     """
@@ -77,8 +133,8 @@ class UIButton(Button):
 
         # If we are moving the mouse over this widget...
         if self.collide_point(*self.to_widget(*pos)):
-            # Schedule the tooltip to appear.
-            Clock.schedule_once(self.display_tooltip, 1)
+            # Schedule the tooltip to appear after half a second.
+            Clock.schedule_once(self.display_tooltip, 0.5)
             # Set the tooltip's x to the position of the cursor.
             if App.get_running_app().root.width - pos[0] < 50:
                 # However, if we're too close to the right edge (and thus would
@@ -138,7 +194,8 @@ class ElementsApp(App):
 
     def build(self):
         """
-       This function starts the application by constructing
+       This function starts the applicaif __name__ == '__main__':
+    ElementsApp().run()tion by constructing
        it from widgets and properties.
        """
 
@@ -149,9 +206,6 @@ class ElementsApp(App):
         # Create the window.
         elements_app = ElementsWindow()
         return elements_app
-
-if __name__ == '__main__':
-    ElementsApp().run()
 
 def alive():
     """Check if Elements is detected. We'll drop this once we have some

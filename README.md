@@ -9,6 +9,14 @@ suggestions in a clean, snazzy interface.
 Elements is developed by [Jason C. McDonald](http://www.indelibluepen.com/),
 a.k.a. CodeMouse92.
 
+## Dependencies
+
+- Requires Kivy >= 1.10
+
+We use [id3reader](https://nedbatchelder.com/code/modules/id3reader.html) by
+Ned Batchelder (nedbat) for reading ID3 tags. This is bundled with the
+repository.
+
 ## Contributing
 
 We welcome bug reports, pull requests, feedback, and other such contributions on

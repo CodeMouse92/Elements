@@ -23,6 +23,7 @@
                 UIButton:
                     id: btnPrev
                     info: "Previous"
+                    on_press: root.playback_prev()
                     Image:
                         source: "icons/ui/elements_prev.png"
                         # Blue, 75% lightness
@@ -35,7 +36,9 @@
                 UIButton:
                     id: btnPlayback
                     info: "Play/Pause"
+                    on_press: root.playback_toggle()
                     Image:
+                        id: img_btnPlayback
                         source: "icons/ui/elements_play.png"
                         # Green, 75% lightness
                         color: ((125/255),(255/255),(125/255),(255/255))
@@ -47,6 +50,7 @@
                 UIButton:
                     id: btnStop
                     info: "Stop"
+                    on_press: root.playback_stop()
                     Image:
                         source: "icons/ui/elements_stop.png"
                         # Red, 75% lightness
@@ -59,6 +63,7 @@
                 UIButton:
                     id: btnNext
                     info: "Next"
+                    on_press: root.playback_next()
                     Image:
                         source: "icons/ui/elements_next.png"
                         # Blue, 75% lightness

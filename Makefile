@@ -24,7 +24,7 @@ lint:
 	pylint3 --rcfile=pylintrc elements
 
 run:
-	python3 elements/elements.py
+	python3 -m elements
 
 test:
 	python3 -m pytest elements
