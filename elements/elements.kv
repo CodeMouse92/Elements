@@ -79,6 +79,7 @@
                     size_hint_min_x: self.parent.width * 0.15
                     size_hint_max_x: self.parent.width * 0.15
                     AsyncImage:
+                        id: img_NowPlaying_Cover
                         source: "icons/ui/elements_nocover.png"
                         width: self.parent.width
                         height: self.parent.height * 0.8
@@ -101,7 +102,7 @@
                         strip: False
                         text_size: (self.parent.width, None)
                         halign: 'left'
-                        text: ''
+                        text: '(Nothing Playing...)'
                     Label:
                         id: lbl_NowPlaying_TrackAlbumYear
                         shorten: True
@@ -109,7 +110,7 @@
                         strip: False
                         text_size: (self.parent.width, None)
                         halign: 'left'
-                        text: '(Nothing Playing...)'
+                        text: ''
             # "Actions" sub-toolbar.
             BoxLayout:
                 orientation: 'horizontal'

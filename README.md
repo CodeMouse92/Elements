@@ -11,14 +11,8 @@ a.k.a. CodeMouse92.
 
 ## Dependencies
 
-- **Kivy >= 1.10**
-  [Official Website](https://kivy.org/)
-  [GitHub](https://github.com/kivy/kivy/)
-  [PyPI](https://pypi.python.org/pypi/Kivy/1.10.0)
-
-- **TinyTag >= 0.18**
-  [GitHub](https://github.com/devsnd/tinytag)
-  [PyPI](https://pypi.python.org/pypi/tinytag)
+- **Kivy >= 1.10**: [Official Website](https://kivy.org/), [GitHub](https://github.com/kivy/kivy/), [PyPI](https://pypi.python.org/pypi/Kivy/1.10.0)
+- **TinyTag >= 0.18**: [GitHub](https://github.com/devsnd/tinytag), [PyPI](https://pypi.python.org/pypi/tinytag)
 
 ## Contributing
 

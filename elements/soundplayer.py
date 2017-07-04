@@ -16,10 +16,10 @@ class SoundPlayer(object):
     """
 
     def __init__(self):
-        self._sound = None
-        self._track = None
         self._queue = playqueue.PlayQueue()
         self._pause_pos = 0
+        self._sound = None
+        self.track = None
         self.load_queued()
 
     # STATUS FUNCTIONS
@@ -32,15 +32,6 @@ class SoundPlayer(object):
             return self._sound.state == 'play'
         else:
             return False
-
-    def get_tags(self):
-        """
-        Return tags for currently playing track.
-        """
-        if self._track:
-            return self._track.get_tags()
-        else:
-            return None
 
     # PLAYBACK FUNCTIONS
 
@@ -136,7 +127,7 @@ class SoundPlayer(object):
         """
         Load the scheduled track from the queue.
         """
-        self._track = self._queue.load()
+        self.track = self._queue.load()
 
         # If sound is loaded...
         if self._sound:
@@ -146,6 +137,6 @@ class SoundPlayer(object):
             self._sound = None
 
         # If we actually got a track to load...
-        if self._track:
+        if self.track:
             # Load the track into our sound object.
-            self._sound = SoundLoader.load(self._track.get_path())
+            self._sound = SoundLoader.load(self.track.get_path())

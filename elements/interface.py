@@ -83,15 +83,15 @@ class ElementsWindow(FloatLayout):
             self.ids.img_btnPlayback.source = "icons/ui/elements_play.png"
 
         # Update displayed metadata.
-        tags = self.player.get_tags()
-        if tags:
-            self.ids.lbl_NowPlaying_TrackNumberTitle.text = tags.track + ". " + tags.title
-            self.ids.lbl_NowPlaying_TrackArtist.text = tags.artist
-            self.ids.lbl_NowPlaying_TrackAlbumYear.text = tags.album + " (" + tags.year + ")"
+        track = self.player.track
+        if track:
+            self.ids.lbl_NowPlaying_TrackNumberTitle.text = track.track() + ". " + track.title()
+            self.ids.lbl_NowPlaying_TrackArtist.text = track.artist()
+            self.ids.lbl_NowPlaying_TrackAlbumYear.text = track.album() + " (" + track.year() + ")"
         else:
-            self.ids.lbl_NowPlaying_TrackNumberTitle.text = "Elements"
-            self.ids.lbl_NowPlaying_TrackArtist.text = ""
-            self.ids.lbl_NowPlaying_TrackAlbumYear.text = "(Nothing Playing...)"
+            self.ids.lbl_NowPlaying_TrackNumberTitle.text = "Elements Music Player"
+            self.ids.lbl_NowPlaying_TrackArtist.text = "(Nothing Playing...)"
+            self.ids.lbl_NowPlaying_TrackAlbumYear.text = ""
 
 class Tooltip(Label):
     """
