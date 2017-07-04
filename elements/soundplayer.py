@@ -33,6 +33,15 @@ class SoundPlayer(object):
         else:
             return False
 
+    def get_tags(self):
+        """
+        Return tags for currently playing track.
+        """
+        if self._track:
+            return self._track.get_tags()
+        else:
+            return None
+
     # PLAYBACK FUNCTIONS
 
     def toggle(self):
@@ -44,15 +53,26 @@ class SoundPlayer(object):
         else:
             self.play()
 
-    def play(self):
+    def play(self, allow_restart=True):
         """
         Start playing audio from current position.
+
+        The no_restart boolean argument ensures we don't wind up with
+        infinite recursion, and prevents unexpected "restart queue"
+        behaviors.
         """
         # If we have audio loaded...
         if self._sound:
             self._sound.play()
             if self._pause_pos != 0:
                 self._sound.seek(self._pause_pos)
+        # Otherwise, if nothing is loaded, but we have something in the queue.
+        elif self._queue.is_queued() and allow_restart:
+            # Load the first item in the queue.
+            self._queue.front()
+            self.load_queued()
+            # Call the play function, preventing recursion.
+            self.play(False)
 
     def pause(self):
         """
@@ -95,7 +115,7 @@ class SoundPlayer(object):
             self._queue.prev()
             self.load_queued()
             # Play the new queued track.
-            self.play()
+            self.play(False)
 
 
     def next(self):
@@ -108,7 +128,7 @@ class SoundPlayer(object):
         self._queue.next()
         self.load_queued()
         # Play the next track.
-        self.play()
+        self.play(False)
 
     # QUEUE FUNCTIONS
 
@@ -127,7 +147,5 @@ class SoundPlayer(object):
 
         # If we actually got a track to load...
         if self._track:
-            # TEMP
-            print("TRACK PATH: " + self._track.get_path())
             # Load the track into our sound object.
             self._sound = SoundLoader.load(self._track.get_path())

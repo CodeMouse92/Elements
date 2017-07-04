@@ -11,11 +11,14 @@ a.k.a. CodeMouse92.
 
 ## Dependencies
 
-- Requires Kivy >= 1.10
+- **Kivy >= 1.10**
+  [Official Website](https://kivy.org/)
+  [GitHub](https://github.com/kivy/kivy/)
+  [PyPI](https://pypi.python.org/pypi/Kivy/1.10.0)
 
-We use [id3reader](https://nedbatchelder.com/code/modules/id3reader.html) by
-Ned Batchelder (nedbat) for reading ID3 tags. This is bundled with the
-repository.
+- **TinyTag >= 0.18**
+  [GitHub](https://github.com/devsnd/tinytag)
+  [PyPI](https://pypi.python.org/pypi/tinytag)
 
 ## Contributing
 

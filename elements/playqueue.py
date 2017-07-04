@@ -20,6 +20,12 @@ class PlayQueue(object):
         # The 1-based index. BE CAREFUL OF OFF-BY-ONES!
         self._item = 1
 
+    def is_queued(self):
+        """
+        Returns true if items are queued, else false.
+        """
+        return len(self._queued) > 0
+
     def load(self):
         """
         Returns the next track to play, or None if there is no queued
@@ -32,6 +38,13 @@ class PlayQueue(object):
             return None
         else:
             return self._queued[self._item-1]
+
+    def front(self):
+        """
+        Move to the first item in the queue.
+        """
+        if len(self._queued) > 0:
+            self._item = 1
 
     def prev(self):
         """
@@ -53,7 +66,3 @@ class PlayQueue(object):
         # If there are items ahead of us...
         if self._item <= len(self._queued):
             self._item += 1
-        # We're out of items...
-        else:
-            # Reset to 0 (no item).
-            self._item = 0

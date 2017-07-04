@@ -87,26 +87,29 @@
                 BoxLayout:
                     orientation: 'vertical'
                     Label:
+                        id: lbl_NowPlaying_TrackNumberTitle
                         shorten: True
                         shorten_from: 'right'
                         strip: False
                         text_size: (self.parent.width, None)
                         halign: 'left'
-                        text: 'Track Title'
+                        text: 'Elements Music Player'
                     Label:
+                        id: lbl_NowPlaying_TrackArtist
                         shorten: True
                         shorten_from: 'right'
                         strip: False
                         text_size: (self.parent.width, None)
                         halign: 'left'
-                        text: 'Track Artist'
+                        text: ''
                     Label:
+                        id: lbl_NowPlaying_TrackAlbumYear
                         shorten: True
                         shorten_from: 'right'
                         strip: False
                         text_size: (self.parent.width, None)
                         halign: 'left'
-                        text: 'Track Album (Year)'
+                        text: '(Nothing Playing...)'
             # "Actions" sub-toolbar.
             BoxLayout:
                 orientation: 'horizontal'

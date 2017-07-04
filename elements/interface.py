@@ -48,7 +48,7 @@ class ElementsWindow(FloatLayout):
         Toggle playback of audio.
         """
         self.player.toggle()
-        self.refresh_playpause()
+        self.refresh_playback_ui()
 
 
     def playback_stop(self):
@@ -56,30 +56,42 @@ class ElementsWindow(FloatLayout):
         Stop playback.
         """
         self.player.stop()
-        self.refresh_playpause()
+        self.refresh_playback_ui()
 
     def playback_prev(self):
         """
         Restart current item or go to previous item in queue.
         """
         self.player.prev()
-        self.refresh_playpause()
+        self.refresh_playback_ui()
 
     def playback_next(self):
         """
         Go to next item in queue.
         """
         self.player.next()
-        self.refresh_playpause()
+        self.refresh_playback_ui()
 
-    def refresh_playpause(self):
+    def refresh_playback_ui(self):
         """
         Update interface to reflect playback status.
         """
+        # Update play/pause button.
         if self.player.is_playing():
             self.ids.img_btnPlayback.source = "icons/ui/elements_pause.png"
         else:
             self.ids.img_btnPlayback.source = "icons/ui/elements_play.png"
+
+        # Update displayed metadata.
+        tags = self.player.get_tags()
+        if tags:
+            self.ids.lbl_NowPlaying_TrackNumberTitle.text = tags.track + ". " + tags.title
+            self.ids.lbl_NowPlaying_TrackArtist.text = tags.artist
+            self.ids.lbl_NowPlaying_TrackAlbumYear.text = tags.album + " (" + tags.year + ")"
+        else:
+            self.ids.lbl_NowPlaying_TrackNumberTitle.text = "Elements"
+            self.ids.lbl_NowPlaying_TrackArtist.text = ""
+            self.ids.lbl_NowPlaying_TrackAlbumYear.text = "(Nothing Playing...)"
 
 class Tooltip(Label):
     """

@@ -5,6 +5,8 @@ A single track.
 Author(s): Jason C. McDonald
 """
 
+from tinytag import TinyTag
+
 class Track(object):
     """
     A single playable track to be stored in PlayQueue.
@@ -28,3 +30,10 @@ class Track(object):
         Return the file path for loading the song.
         """
         return self._filepath
+
+    def get_tags(self):
+        """
+        Return the tag object for the currently playing track.
+        """
+        if self._filepath:
+            return TinyTag.get(self._filepath)
