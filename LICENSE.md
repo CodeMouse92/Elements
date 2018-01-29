@@ -1,3 +1,9 @@
+# LICENSE
+
+The entire Elements project is licensed under the GNU GENERAL PUBLIC LICENSE (see below).
+
+Certain files within Elements are individually licensed under the BSD 3-CLAUSE LICENSE (see BSD_LICENSE.md).
+
 # GNU GENERAL PUBLIC LICENSE
 
 Version 3, 29 June 2007
