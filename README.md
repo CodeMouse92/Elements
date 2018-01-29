@@ -11,8 +11,11 @@ a.k.a. CodeMouse92.
 
 ## Dependencies
 
-- **Kivy >= 1.10**: [Official Website](https://kivy.org/), [GitHub](https://github.com/kivy/kivy/), [PyPI](https://pypi.python.org/pypi/Kivy/1.10.0)
-- **TinyTag >= 0.18**: [GitHub](https://github.com/devsnd/tinytag), [PyPI](https://pypi.python.org/pypi/tinytag)
+- **Qt5**
+- **Mutagen**
+
+NOTE: We previously started with Kivy and tinytag, but are dropping both in
+favor of more robust options.
 
 ## Contributing
 
@@ -24,5 +27,9 @@ primarily on making a music library application that he likes.
 
 ## License
 
-Elements is licensed under the BSD 3-clause license. See LICENSE.md for more
+Elements is licensed under the GPL-3 license. See LICENSE.md for more
 information.
+
+Certain files are licensed under the BSD-3; you're welcome to
+use that code by itself under that license. See the top of each file to know
+what license it uses.
