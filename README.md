@@ -21,15 +21,15 @@ favor of more robust options.
 
 We welcome bug reports, pull requests, feedback, and other such contributions on
 the [Elements GitHub](https://github.com/CodeMouse92/Elements).
-
-Elements is a personal project, meaning that the main developer is focusing
-primarily on making a music library application that he likes.
+However, this is a personal project, meaning that the main developer is focusing
+primarily on making a music library application that he likes. Before
+contributing, please read `CRANKY.md`.
 
 ## License
 
-Elements is licensed under the GPL-3 license. See LICENSE.md for more
+Elements is licensed under the GPL-3 license. See `LICENSE.md` for more
 information.
 
-Certain files are licensed under the BSD-3; you're welcome to
-use that code by itself under that license. See the top of each file to know
-what license it uses.
+Certain files are licensed under the BSD-3 (see `BSD_LICENSE.md`); you're
+welcome to use that code by itself under that license. See the top of each
+file to know what license it uses.
