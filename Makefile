@@ -9,6 +9,10 @@ help:
 	@echo "lint           Run pylint3 on the Elements package."
 	@echo "test           Run pytests for Elements."
 
+clean:
+	@rm -rf elements/__pycache__
+	@rm -f elements/*.pyc
+
 demo_deploy: demo_clean
 	@mkdir -p /tmp/bin
 	@cp -rf elements /tmp/bin/elements

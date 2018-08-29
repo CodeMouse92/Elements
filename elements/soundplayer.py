@@ -5,7 +5,6 @@ The sound playback module and functionality.
 Author(s): Jason C. McDonald
 """
 
-from kivy.core.audio import SoundLoader
 from elements import playqueue
 
 class SoundPlayer(object):
@@ -108,7 +107,6 @@ class SoundPlayer(object):
             # Play the new queued track.
             self.play(False)
 
-
     def next(self):
         """
         Skip to next queued item.
@@ -139,4 +137,5 @@ class SoundPlayer(object):
         # If we actually got a track to load...
         if self.track:
             # Load the track into our sound object.
-            self._sound = SoundLoader.load(self.track.get_path())
+            ## TODO: Play sound
+            pass

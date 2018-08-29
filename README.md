@@ -11,7 +11,7 @@ a.k.a. CodeMouse92.
 
 ## Dependencies
 
-- **Qt5**
+- **PyQt** (Qt5)
 - **Mutagen**
 
 NOTE: We previously started with Kivy and tinytag, but are dropping both in
