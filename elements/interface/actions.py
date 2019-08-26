@@ -14,7 +14,6 @@ class Actions(object):
                                                shortcut="Ctrl+Q",
                                                icon="application-exit",
                                                window=window)
-
         return actions
 
     @staticmethod

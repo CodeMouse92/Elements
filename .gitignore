@@ -81,13 +81,11 @@ target/
 # celery beat schedule file
 celerybeat-schedule
 
-# dotenv
-.env
-
 # virtualenv
+.env/
+env/
 venv/
 .venv/
-ENV/
 
 # Spyder project settings
 .spyderproject
@@ -95,7 +93,8 @@ ENV/
 # Rope project settings
 .ropeproject
 
+# PyCharm project settings
+.idea/
+
 # Codealike
 codealike.json
-
-.idea/
