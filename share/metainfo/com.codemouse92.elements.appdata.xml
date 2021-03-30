@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 First Lastname <your@email.com> -->
+<component type="desktop-application">
+    <id>com.codemouse92.elements</id>
+    <metadata_license>CC-BY-3.0</metadata_license>
+    <project_license>GPL-3.0-or-later</project_license>
+    <name>Elements</name>
+    <summary>Modern music curation.</summary>
+
+    <description>
+        <p>
+            A modern music library application for music collectors and enthusiasts.
+            Elements will offer custom library curation, advanced queue control, and music
+            suggestions in a clean, snazzy interface.
+        </p>
+    </description>
+
+    <content_rating type="oars-1.0" />
+
+    <launchable type="desktop-id">com.codemouse92.elements.desktop</launchable>
+
+    <!--<screenshots>
+        <screenshot type="default">
+            <caption>The main time tracking screen</caption>
+            <image>https://codemouse92.github.io/elements/img/log.jpg</image>
+        </screenshot>
+    </screenshots>-->
+
+    <url type="homepage">https://codemouse92.github.io/elements/</url>
+    <developer_name>Jason C. McDonald</developer_name>
+    <update_contact>codemouse92_AT_outlook.com</update_contact>
+
+    <provides>
+        <binary>elements-app</binary>
+    </provides>
+
+    <releases>
+        <!--<release version="2.0.7" date="2021-03-19">
+            <description>
+            <p>Fixes erroneous duration when stopping after pause.</p>
+            </description>
+        </release>-->
+    </releases>
+</component>

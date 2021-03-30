@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=Elements
+Comment=Modern music curation.
+Exec=elements-app
+Icon=com.codemouse92.elements
+Terminal=false
+Type=Application

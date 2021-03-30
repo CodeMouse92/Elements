@@ -6,16 +6,15 @@ suggestions in a clean, snazzy interface.
 
 ## Authors
 
-Elements is developed by [Jason C. McDonald](http://www.indelibluepen.com/),
+Elements is developed by [Jason C. McDonald](http://www.codemouse92.com/),
 a.k.a. CodeMouse92.
 
 ## Dependencies
 
-- **PyQt** (Qt5)
-- **Mutagen**
-
-NOTE: We previously started with Kivy and tinytag, but are dropping both in
-favor of more robust options.
+- PySide2 (Qt 5)
+- Mutagen
+- appdirs
+- musicbrainzngs
 
 ## Contributing
 

@@ -1,1 +1,4 @@
-PySide2
+appdirs >= 1.4.4
+PySide2 >=5.15.2
+mutagen >= 1.45.1
+musicbrainzngs >= 0.7.1
